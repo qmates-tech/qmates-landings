@@ -12,6 +12,10 @@ a,
   @apply text-nowrap;
 }
 
+.hover-gradient:hover {
+  @apply bg-gradient-to-r from-blue-500 via-cyan-600 to-green-400;
+}
+
 .box-shadow {
   box-shadow: 0px 20px 60px 0px rgba(0.9999999999999865, 30.000000000000014, 81, 0.0784313725490196)
 }

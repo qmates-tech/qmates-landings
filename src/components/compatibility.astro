@@ -1,77 +1,11 @@
 ---
-import CompatibilityList from "~/components/compatibility-list.astro";
 import ContentSection from "~/components/content-section.astro";
-import type { CompatibilityItem } from "~/types";
 import Gradient from "./gradient.astro";
+import Input from "./input.astro";
 
-const frameworks: Array<CompatibilityItem> = [
-  {
-    title: "React",
-    icon: "frameworks/react",
-    url: "https://reactjs.org/",
-  },
-  {
-    title: "Preact",
-    icon: "frameworks/preact",
-    url: "https://preactjs.com/",
-  },
-  {
-    title: "Svelte",
-    icon: "frameworks/svelte",
-    url: "https://svelte.dev/",
-  },
-  {
-    title: "Vue",
-    icon: "frameworks/vue",
-    url: "https://vuejs.org/",
-  },
-  {
-    title: "Solid",
-    icon: "frameworks/solid",
-    url: "https://www.solidjs.com/",
-  },
-  {
-    title: "Lit",
-    icon: "frameworks/lit",
-    url: "https://lit.dev/",
-  },
-];
-
-const platforms: Array<CompatibilityItem> = [
-  {
-    title: "Netlify",
-    icon: "platforms/netlify",
-    url: "https://www.netlify.com/",
-  },
-  {
-    title: "Vercel",
-    icon: "platforms/vercel",
-    url: "https://vercel.com/",
-  },
-  {
-    title: "Cloudflare",
-    icon: "fa-brands:cloudflare",
-    url: "https://pages.cloudflare.com/",
-  },
-  {
-    title: "Render",
-    icon: "platforms/render",
-    url: "https://render.com/",
-  },
-  {
-    title: "GitHub",
-    icon: "fa-brands:github",
-    url: "https://pages.github.com/",
-  },
-  {
-    title: "GitLab",
-    icon: "fa-brands:gitlab",
-    url: "https://docs.gitlab.com/ee/user/project/pages/",
-  },
-];
 ---
 
-<ContentSection id="compatibility" white={true}>
+<ContentSection id="compatibility" white={true} horizontal={true}>
   <Fragment slot="subtitle"><Gradient>Compatibility</Gradient></Fragment>
   <Fragment slot="lead">
     Astro <span class="text-primary">plays nice</span>. Bring your own UI{" "}
@@ -79,15 +13,22 @@ const platforms: Array<CompatibilityItem> = [
     and deploy to your favorite <span class="text-primary">platform</span>.
   </Fragment>
   <Fragment slot="content">
-    <CompatibilityList
-      items={frameworks}
-      title="Frameworks"
-      url="https://docs.astro.build/core-concepts/framework-components/"
-    />
-    <CompatibilityList
-      items={platforms}
-      title="Platforms"
-      url="https://docs.astro.build/guides/deploy/"
-    />
+    <form class="w-full mb-6 grid gap-6 px-8">
+      <Input
+          name="firstName"
+          type="text"
+          placeholder="Name"
+          required={true}
+      />
+      <Input
+          name="emailAddress"
+          type="email"
+          placeholder="Email address"
+          required={true}
+      />
+      <div class="flex justify-start">
+        <button type="submit" class="text-white bg-black hover-gradient focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download</button>
+      </div>
+    </form>
   </Fragment>
 </ContentSection>
