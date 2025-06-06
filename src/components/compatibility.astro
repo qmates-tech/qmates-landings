@@ -2,6 +2,7 @@
 import CompatibilityList from "~/components/compatibility-list.astro";
 import ContentSection from "~/components/content-section.astro";
 import type { CompatibilityItem } from "~/types";
+import Gradient from "./gradient.astro";
 
 const frameworks: Array<CompatibilityItem> = [
   {
@@ -70,20 +71,23 @@ const platforms: Array<CompatibilityItem> = [
 ];
 ---
 
-<ContentSection title="Compatibility" id="compatibility" white={true}>
+<ContentSection id="compatibility" white={true}>
+  <Fragment slot="subtitle"><Gradient>Compatibility</Gradient></Fragment>
   <Fragment slot="lead">
     Astro <span class="text-primary">plays nice</span>. Bring your own UI{" "}
     <span class="text-primary">framework</span>
     and deploy to your favorite <span class="text-primary">platform</span>.
   </Fragment>
-  <CompatibilityList
-    items={frameworks}
-    title="Frameworks"
-    url="https://docs.astro.build/core-concepts/framework-components/"
-  />
-  <CompatibilityList
-    items={platforms}
-    title="Platforms"
-    url="https://docs.astro.build/guides/deploy/"
-  />
+  <Fragment slot="content">
+    <CompatibilityList
+      items={frameworks}
+      title="Frameworks"
+      url="https://docs.astro.build/core-concepts/framework-components/"
+    />
+    <CompatibilityList
+      items={platforms}
+      title="Platforms"
+      url="https://docs.astro.build/guides/deploy/"
+    />
+  </Fragment>
 </ContentSection>

@@ -3,12 +3,14 @@ import { Icon } from "astro-icon/components";
 import ContentSection from "./content-section.astro";
 import { Image } from "astro:assets";
 import moonImage from "~/assets/moon.jpg";
+import Gradient from "./gradient.astro";
+
 ---
 
 <ContentSection id="intro" white={true} >
   <Fragment slot="title">
     <div class="pt-6">
-      Download <span class="gradient-text">PDC Canvas</span><br />for your company
+      Download <Gradient>PDC Canvas</Gradient> for your company
     </div>
   </Fragment>
   <Fragment slot="lead">
@@ -17,20 +19,22 @@ import moonImage from "~/assets/moon.jpg";
     <span class="text-primary">Lightning-fast</span>
     performance meets <span class="text-primary">powerful</span> developer experience.
   </Fragment>
-  <a
-    href="#compatibility"
-    class="flex items-center justify-center gap-3 border-2 rounded-lg border-current px-4 py-2 text-md"
-    >
-    <Icon name="mdi:download" class="size-6" />
-    <span>Download</span>
-  </a>
-  <div class="w-full max-w-6xl mt-8">
-    <Image
-      class="h-full w-full object-cover rounded-3xl"
-      src={moonImage}
-      alt="PDC Canvas screenshot"
-      loading="eager"
-      width={800}
-      height={600} />
-  </div>
+  <Fragment slot="content">
+    <a
+      href="#compatibility"
+      class="flex items-center justify-center gap-3 border-2 rounded-lg border-current px-4 py-2 text-md"
+      >
+      <Icon name="mdi:download" class="size-6" />
+      <span>Download</span>
+    </a>
+    <div class="w-full max-w-6xl mt-8">
+      <Image
+        class="h-full w-full object-cover rounded-3xl"
+        src={moonImage}
+        alt="PDC Canvas screenshot"
+        loading="eager"
+        width={800}
+        height={600} />
+    </div>
+  </Fragment>
 </ContentSection>
