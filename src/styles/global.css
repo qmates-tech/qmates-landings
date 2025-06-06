@@ -9,7 +9,13 @@ a,
 .gradient-text {
   @apply bg-clip-text text-transparent;
   @apply bg-gradient-to-r from-blue-500 via-cyan-600 to-green-400;
-  /* @apply bg-gradient-to-br from-blue-500 via-fuchsia-500 to-pink-500; */
+  @apply text-nowrap;
 }
 
-/* linear-gradient(100deg, var( --e-global-color-primary ) 40%, #00D372 100%) */
+.box-shadow {
+  box-shadow: 0px 20px 60px 0px rgba(0.9999999999999865, 30.000000000000014, 81, 0.0784313725490196)
+}
+
+.bg-section {
+  background-color: #F5F9FF
+}

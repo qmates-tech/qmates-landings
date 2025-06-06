@@ -5,8 +5,8 @@ import Features from "~/components/features.astro";
 import Footer from "~/components/footer.astro";
 import Header from "~/components/header.astro";
 import Intro from "~/components/intro.astro";
+import OverlapBackgroundEffect from "~/components/overlap-background-effect.astro";
 import Showcase from "~/components/showcase.astro";
-// import Splash from "~/components/splash.astro";
 import "~/styles/index.css";
 
 const { generator, site } = Astro;
@@ -35,12 +35,12 @@ const description =
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+    class="h-full overflow-x-hidden bg-section text-default text-base selection:bg-secondary selection:text-white"
   >
     <Header />
-    <!-- <Splash /> -->
-    <div class="space-y-24 px-8 py-32">
+    <div class="pb-32">
       <Intro />
+      <OverlapBackgroundEffect />
       <Features />
       <Compatibility />
       <Showcase />

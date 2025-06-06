@@ -2,14 +2,15 @@
 export interface Props {
   id: string;
   title?: string;
+  white?: boolean;
 }
 
-const { title, id } = Astro.props;
+const { title, id, white } = Astro.props;
 ---
 
 <section
   id={id}
-  class="flex scroll-mt-24 flex-col items-center gap-6"
+  class={`flex scroll-pt-24 flex-col items-center gap-6 px-4 md:px-8 pt-24 ${white ? 'bg-white' : 'bg-section'}`}
 >
   <div class="flex flex-col items-center gap-4">
     <slot name="eyebrow" />

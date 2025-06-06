@@ -5,9 +5,11 @@ import { Image } from "astro:assets";
 import moonImage from "~/assets/moon.jpg";
 ---
 
-<ContentSection id="intro" >
+<ContentSection id="intro" white={true} >
   <Fragment slot="title">
-    Download <span class="gradient-text">PDC Canvas</span><br />for your company
+    <div class="pt-6">
+      Download <span class="gradient-text">PDC Canvas</span><br />for your company
+    </div>
   </Fragment>
   <Fragment slot="lead">
     Astro is a new kind of site builder for the
