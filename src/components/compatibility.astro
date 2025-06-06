@@ -2,6 +2,7 @@
 import ContentSection from "~/components/content-section.astro";
 import Gradient from "./gradient.astro";
 import Input from "./input.astro";
+import LeadForm from "./lead-form.astro";
 
 ---
 
@@ -13,7 +14,7 @@ import Input from "./input.astro";
     and deploy to your favorite <span class="text-primary">platform</span>.
   </Fragment>
   <Fragment slot="content">
-    <form class="w-full mb-6 grid gap-6 px-8">
+    <LeadForm>
       <Input
           name="firstName"
           type="text"
@@ -26,9 +27,6 @@ import Input from "./input.astro";
           placeholder="Email address"
           required={true}
       />
-      <div class="flex justify-start">
-        <button type="submit" class="text-white bg-black hover-gradient focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download</button>
-      </div>
-    </form>
+    </LeadForm>
   </Fragment>
 </ContentSection>
