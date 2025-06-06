@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
 import ContentSection from "./content-section.astro";
+import { Image } from "astro:assets";
+import moonImage from "~/assets/moon.jpg";
 ---
 
 <ContentSection id="intro" >
@@ -13,13 +15,20 @@ import ContentSection from "./content-section.astro";
     <span class="text-primary">Lightning-fast</span>
     performance meets <span class="text-primary">powerful</span> developer experience.
   </Fragment>
-  <div class="grid grid-cols-1">
-    <a
-      href="#compatibility"
-      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
+  <a
+    href="#compatibility"
+    class="flex items-center justify-center gap-3 border-2 rounded-lg border-current px-4 py-2 text-md"
     >
-      <Icon name="mdi:download" class="size-8" />
-      <span>Download</span>
-    </a>
+    <Icon name="mdi:download" class="size-6" />
+    <span>Download</span>
+  </a>
+  <div class="w-full max-w-6xl mt-8">
+    <Image
+      class="h-full w-full object-cover rounded-3xl"
+      src={moonImage}
+      alt="PDC Canvas screenshot"
+      loading="eager"
+      width={800}
+      height={600} />
   </div>
 </ContentSection>
