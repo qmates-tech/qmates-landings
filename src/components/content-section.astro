@@ -26,5 +26,5 @@ const hasContent = Astro.slots.has('content')
     </div>
   )}
   {hasLead && <p class="max-w-xl text-center text-md"><slot name="lead" /></p>}
-  {hasContent && <slot name="content"/>}
+  {hasContent && <div class="flex flex-col w-full max-w-6xl flex-col items-center"><slot name="content"/></div>}
 </section>
