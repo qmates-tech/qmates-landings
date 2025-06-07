@@ -21,5 +21,5 @@ a,
 }
 
 .bg-section {
-  background-color: #F5F9FF
+  @apply bg-slate-100;
 }
