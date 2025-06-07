@@ -7,12 +7,11 @@ const { generator, site } = Astro;
 export interface Props {
   title: string;
   description: string;
-  imageUrl: string;
-  white?: boolean;
+  imageUrl?: string; // image path relative to the public directory
 }
 
 const { title, description, imageUrl } = Astro.props;
-const image = new URL(imageUrl, site);
+const image = imageUrl ? new URL(imageUrl, site) : undefined;
 ---
 
 <!doctype html>
@@ -26,11 +25,10 @@ const image = new URL(imageUrl, site);
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <!-- social media -->
-    <meta property="og:title" content="Astro" />
     <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    {image && <meta property="og:image" content={image} />}
     <meta property="og:url" content={site} />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
