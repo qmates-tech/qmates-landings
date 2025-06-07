@@ -1,21 +1,28 @@
 ---
+export interface Props {
+  formId: string;
+}
 
+const { formId } = Astro.props;
 ---
 
-<form id="lead-form" class="w-full mb-6 grid gap-6 px-8">
+<form id="lead-form" data-form-id={formId} class="w-full mb-6 grid gap-6 px-8">
   <slot />
   <div class="flex justify-start">
     <button type="submit" class="text-white bg-black hover-gradient focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download</button>
   </div>
 </form>
 <script>
-  document.querySelector("#lead-form")?.addEventListener("submit", async function(event) {
+  const form = document.querySelector("#lead-form");
+  const formId = form?.dataset.formId;
+
+  form?.addEventListener("submit", async function(event) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
     const payloadData = JSON.stringify(Object.fromEntries(formData));
 
-    const response = await fetch('https://crm.qmates.tech/api/v1/LeadCapture/a0cc365b42fc24ad1ca27156b0c8025e', {
+    const response = await fetch(`https://crm.qmates.tech/api/v1/LeadCapture/${formId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

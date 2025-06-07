@@ -13,19 +13,9 @@ import LeadForm from "./lead-form.astro";
     to perform a first checkup on your own.
   </Fragment>
   <Fragment slot="content">
-    <LeadForm>
-      <Input
-          name="firstName"
-          type="text"
-          placeholder="Name"
-          required={true}
-      />
-      <Input
-          name="emailAddress"
-          type="email"
-          placeholder="Email address"
-          required={true}
-      />
+    <LeadForm formId="a0cc365b42fc24ad1ca27156b0c8025e">
+      <Input type="text" name="firstName" placeholder="Name" required={true} />
+      <Input type="email" name="emailAddress" placeholder="Email address" required={true} />
     </LeadForm>
   </Fragment>
 </ContentSection>
