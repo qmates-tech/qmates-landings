@@ -1,4 +1,5 @@
 ---
+
 // const inputObjects = {
 //   name: { type: "text" },
 //   lastName: { type: "text" },
@@ -13,12 +14,14 @@
 
 export interface Props {
   formId: string;
+  success?: string;
+  error?: string;
 }
 
-const { formId } = Astro.props;
+const { formId, success, error } = Astro.props;
 ---
 
-<form id="lead-form" data-form-id={formId} class="w-full mb-6 grid gap-6 px-8">
+<form id="lead-form" data-success={success} data-error={error} data-form-id={formId} class="w-full mb-6 grid gap-6 px-8">
   <slot />
   <div class="flex justify-start">
     <button type="submit" class="text-white bg-black hover-gradient focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download</button>
@@ -27,6 +30,8 @@ const { formId } = Astro.props;
 <script>
   const form = document.querySelector("#lead-form");
   const formId = form?.dataset.formId;
+  const success = form?.dataset.success;
+  const error = form?.dataset.error;
 
   form?.addEventListener("submit", async function(event) {
     event.preventDefault();
@@ -45,11 +50,10 @@ const { formId } = Astro.props;
     })
 
     if (response.ok) {
-      // Success
+      form?.reset()
+      alert(success || 'Your request has been successfully submitted.');
     } else {
-      // Error
-      alert('error occurred');
+      alert(error || 'There was an error submitting your request. Please try again later.');
     }
   });
-
 </script>
